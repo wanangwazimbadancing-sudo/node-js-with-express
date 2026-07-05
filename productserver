@@ -1,0 +1,56 @@
+import express from "express"
+
+const app = express();
+
+const PORT = 3000;
+
+const Products = [
+    {
+        id:1,
+        name:"shoes",
+        price:"2000"
+    },
+        {
+        id:2,
+        name:"trouser",
+        price:"3000"
+    }
+
+];
+
+
+app.get("/",(req,res)=>{
+
+res.json({
+one_message:"am coming"
+
+})
+
+});
+
+
+app.get("/products/:id", (req,res)=>{
+
+const Id = Number(req.params.id);
+
+const index = Products.find((id) => id === Id);
+
+if (index === -1)res.send(Products[0]);
+ 
+
+return  res.send(Products[Id-1]);
+ ;
+
+});
+
+
+
+
+app.listen(PORT, ()=>{
+console.log(`am coming at port ${PORT}`);
+
+
+
+})
+
+
