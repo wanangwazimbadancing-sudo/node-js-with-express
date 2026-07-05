@@ -31,14 +31,14 @@ one_message:"am coming"
 
 app.get("/products/:id", (req,res)=>{
 
-const Id = Number(req.params.id);
+const ProductId = Number(req.params.id);
 
-const index = Products.find((id) => id === Id);
+const index = Products.find((id) => ProductId.id === Id);
 
 if (index === -1)res.send(Products[0]);
  
 
-return  res.send(Products[Id-1]);
+return  res.send(Products[ProductId-1]);
  ;
 
 });
