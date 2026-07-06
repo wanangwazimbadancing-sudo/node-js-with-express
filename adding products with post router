@@ -1,0 +1,29 @@
+const products = [{id: 1, name: "Product 1"}, {id: 2, name: "Product 2"}];
+
+
+
+
+
+app.post("/products", (req,res)=>{
+
+    const name = req.body;
+
+    
+   products.push({
+        id: products.length + 1,
+        name: name
+    });
+
+    res.status(201).send({
+        message: "Product created",
+        data: products[products.length - 1]
+    });
+
+    res.status(400).send({
+        message: "Product not created"
+    });
+
+    res.status(500).send({
+        message: "Internal server error"
+    });
+});
